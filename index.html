@@ -26,6 +26,8 @@
 <script src="md5.js"></script>
 <script>
   function authenticate(token) {
+    $('#invalidauth').attr('hidden', true);
+    $("#invalidauth").innerHTML = token;
     var params = getUrlVars();
     var redirect_Uri = params['redirect_uri'];
     redirect_Uri = redirect_Uri + "?access_token=" + token;
