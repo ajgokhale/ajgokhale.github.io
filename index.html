@@ -27,9 +27,8 @@
 <script>
   function authenticate(token) {
     params = getUrlVars();
-    redirect_Uri = params['redirect_uri']
-    redirect_Uri = redirect_Uri + "?access_token=" + token
-    alert(redirect_Uri)
+    redirect_Uri = params['redirect_uri'];
+    redirect_Uri = redirect_Uri + "?access_token=" + token;
     window.location.replace(redirect_Uri);
   }
 
@@ -51,7 +50,6 @@
         
         var obj = JSON.parse(result);
         if (obj.success == "Valid") {
-          alert(obj.token)
           authenticate(obj.token);
           $('#invalidauth').attr('hidden', true);
         } else {
