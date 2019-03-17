@@ -28,7 +28,8 @@
   function authenticate(token) {
     params = getUrlVars();
     redirect_Uri = params['redirect_uri']
-    redirect_Uri + "?access_token=" + token
+    redirect_Uri = redirect_Uri + "?access_token=" + token
+    alert(redirect_Uri)
     window.location.replace(redirect_Uri);
   }
 
@@ -57,7 +58,7 @@
         }
       },
       error:function(xhr, textStatus, error){
-        alert('POSTerror');
+        alert(textStatus);
       }
     });
 	}
