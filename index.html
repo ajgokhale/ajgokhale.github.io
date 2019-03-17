@@ -26,8 +26,8 @@
 <script src="md5.js"></script>
 <script>
   function authenticate(token) {
-    params = getUrlVars();
-    redirect_Uri = params['redirect_uri'];
+    var params = getUrlVars();
+    var redirect_Uri = params['redirect_uri'];
     redirect_Uri = redirect_Uri + "?access_token=" + token;
     window.location.replace(redirect_Uri);
   }
@@ -46,7 +46,7 @@
       data: {u: username, p: password},
       datatype: 'json',
       success: function(result) {
-        alert(result);
+        //alert(result);
         
         var obj = JSON.parse(result);
         if (obj.success == "Valid") {
