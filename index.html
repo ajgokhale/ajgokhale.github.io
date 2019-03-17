@@ -26,8 +26,6 @@
 <script src="md5.js"></script>
 <script>
   function authenticate(token) {
-    $('#invalidauth').attr('hidden', true);
-    $("#invalidauth").innerHTML = token;
     var params = getUrlVars();
     var redirect_Uri = params['redirect_uri'];
     redirect_Uri = redirect_Uri + "?access_token=" + token;
@@ -41,15 +39,13 @@
     password = MD5(password);
 
     // Make request
-		const Url = "http://localhost:8080/";
+		const Url = "http://localhost:8080/auth/";
     $.ajax({
       url: Url,
       type: "POST",
       data: {u: username, p: password},
       datatype: 'json',
-      success: function(result) {
-        //alert(result);
-        
+      success: function(result) {        
         var obj = JSON.parse(result);
         if (obj.success == "Valid") {
           authenticate(obj.token);
